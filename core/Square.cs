@@ -49,10 +49,24 @@
             }
 
             // oszlopok ellenőrzése
+            
+            for (int j = 0; j < n; j++)
+            { 
+                int colSum = 0;
+                for (int i = 0; i < n; i++)
+                    colSum += Matrix[i, j];
+                if (colSum != magicSum)
+                    return false;
+            }
 
 
             // főátló
+            int firstDiag = 0;
+            for (int i = 0; i < n; i++)
+                firstDiag += Matrix[i, i];
 
+            if (firstDiag != magicSum)
+                return false;
 
             // mellékátló
             int secDiag = 0;

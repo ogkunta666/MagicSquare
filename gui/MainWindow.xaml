@@ -1,0 +1,24 @@
+﻿<Window x:Class="gui.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:gui"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0">
+            <Label Content="Válasszon egy sorszámot:" Margin="5"/>
+            <ComboBox x:Name="IndexComboBox" Margin="5" SelectionChanged="IndexComboBox_SelectionChanged"/>
+            <Button x:Name="ellenorzesButton"  Content="Ellenőrzés" Margin="5" Click="ellenorzesButton_Click"/>
+        </StackPanel>
+        <Border Grid.Column="1" BorderThickness="1" Margin="5" BorderBrush="Black">
+            <UniformGrid x:Name="SquaresUniformGrid"  Margin="5"/>
+        </Border>
+    </Grid>
+</Window>
