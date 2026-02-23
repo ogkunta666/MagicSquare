@@ -35,6 +35,32 @@ namespace gui
             }
 
             int n = squares[IndexComboBox.SelectedIndex].N;
+            int[,] currentMatrix = new int[n, n];
+            int index = 0;
+
+            foreach (TextBox textBox in SquaresUniformGrid.Children)
+            {
+               var (i, j) = ((int, int))textBox.Tag;
+               currentMatrix[i, j] = int.Parse(textBox.Text);
+            }
+            Square checkedSquare = new Square(currentMatrix);
+
+            if (checkedSquare.IsMagic())
+            {
+                MessageBox.Show(
+                "Ez egy varázsnégyzet",
+                "Üzenet",
+                MessageBoxButton.OK,
+                MessageBoxImage.Information);
+            }
+            else
+            {
+                MessageBox.Show(
+                "Ez nem egy varázsnégyzet",
+                "Üzenet",
+                MessageBoxButton.OK,
+                MessageBoxImage.Warning);
+            }
         }
 
         private void IndexComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
